@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<p id="contact"></p>
+<p id="phone"></p>
+
+
+
+
+
+</body>
+
+<script>
+
+    fetch('/user-infor.json')
+    .then(response => response.json())
+    .then(data => displayData(data));
+
+    function displayData(data)
+    {
+        document.getElementById("contact").innerHTML = data.contact;
+        document.getElementById("phone").innerHTML = data.phone
+    }
+
+</script>
+
+
+</html>

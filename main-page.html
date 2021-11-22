@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="main-page.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="main-page.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,13 +29,7 @@
             </a>
             <span class="tooltip">Dashboard</span>
         </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-user' ></i>
-                <span class="links_name">User</span>
-            </a>
-            <span class="tooltip">User</span>
-        </li>
+
 
         <li>
             <a href="#">
@@ -64,8 +59,8 @@
 
 
         <li>
-            <a href="#">
-                <i class='bx bx-cog' ></i>
+            <a href="#" >
+                <i  class='bx bx-cog' ></i>
                 <span class="links_name">Setting</span>
             </a>
             <span class="tooltip">Setting</span>
@@ -83,12 +78,21 @@
     </ul>
 </div>
 <section class="home-section">
-    <div class="text">Dashboard</div>
+    <div id="contentpage" ></div>
 </section>
 <script>
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
+
+    let settingBtn = document.querySelector(".bx-cog")
+    console.log(settingBtn)
+    settingBtn.addEventListener("click", ()=>{
+        console.log("click om settimg buttom");
+        $("#contentpage").load("setting.html")
+    })/
+
+
 
     closeBtn.addEventListener("click", ()=>{
         sidebar.classList.toggle("open");
@@ -100,6 +104,8 @@
         menuBtnChange(); //calling the function(optional)
     });
 
+
+
     // following are the code to change sidebar button(optional)
     function menuBtnChange() {
         if(sidebar.classList.contains("open")){
@@ -108,6 +114,8 @@
             closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
         }
     }
+
+
 </script>
 </body>
 </html>
