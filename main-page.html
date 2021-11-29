@@ -42,19 +42,10 @@
         <li>
             <a href="#">
                 <i class='bx bx-bar-chart-square' ></i>
-                <span class="links_name">Heart rate monitor</span>
+                <span class="links_name">heart rate monitor</span>
             </a>
             <span class="tooltip">Heart rate monitor</span>
 
-        </li>
-
-
-        <li>
-            <a href="#">
-                <i class='bx bx-chat' ></i>
-                <span class="links_name">Doctor's note</span>
-            </a>
-            <span class="tooltip">Doctor's note</span>
         </li>
 
 
@@ -88,9 +79,23 @@
     let settingBtn = document.querySelector(".bx-cog")
     console.log(settingBtn)
     settingBtn.addEventListener("click", ()=>{
-        console.log("click om settimg buttom");
+        console.log("click on setting button");
         $("#contentpage").load("setting.html")
-    })/
+    });
+
+    let hrBtn = document.querySelector(".bx-bar-chart-square")
+    console.log(hrBtn)
+    hrBtn.addEventListener("click", ()=>{
+        console.log("click on heart rate monitor button");
+        $("#contentpage").load("heart-rate.html")
+    });
+
+    let activityBtn = document.querySelector(".bx-bar-chart-alt-2")
+    console.log(activityBtn)
+    activityBtn.addEventListener("click", ()=>{
+        console.log("click om heart rate monitor button");
+        $("#contentpage").load("activity.html")
+    });
 
 
 
