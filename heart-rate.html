@@ -24,6 +24,24 @@
 </head>
 
 <body>
-
+<p id="user"></p>
+<p id="hr"></p>
+<p id="hour"></p>
 </body>
+
+<script>
+
+    fetch('/heart-rate.json')
+        .then(response => response.json())
+        .then(data => displayData(data));
+
+    function displayData(data)
+    {
+        document.getElementById("user").innerHTML = data.user;
+        document.getElementById("hr").innerHTML = data.hr;
+        document.getElementById("hour").innerHTML = data.hour;
+    }
+
+</script>
+
 </html>

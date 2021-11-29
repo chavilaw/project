@@ -57,6 +57,7 @@
             <span class="tooltip">Setting</span>
         </li>
 
+
         <li class="profile">
             <div class="profile-details">
                 <!--<img src="profile.jpg" alt="profileImg">-->
@@ -64,7 +65,8 @@
                     <div class="name">Patient 01</div>
                 </div>
             </div>
-            <i class='bx bx-log-out' id="log_out" ></i>
+            <a href="login.html" class='bx bx-log-out' id="log_out"></a>
+
         </li>
     </ul>
 </div>
@@ -93,9 +95,11 @@
     let activityBtn = document.querySelector(".bx-bar-chart-alt-2")
     console.log(activityBtn)
     activityBtn.addEventListener("click", ()=>{
-        console.log("click om heart rate monitor button");
+        console.log("click on heart rate monitor button");
         $("#contentpage").load("activity.html")
     });
+
+
 
 
 
