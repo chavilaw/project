@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
-    margin: 0;
+    margin: 0 ;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins" , sans-serif;
@@ -249,12 +249,14 @@
     }
 }
 
-#contentpage{weight:100%
+#contentpage{
+    weight:100%;
 }
 
 h1{
-    position: center;
     background: #E4E9F7;
     font-size: 25px;
-
+    padding-left: 100px;
+    padding-top: 30px;
+    padding-right: 30px;
 }
