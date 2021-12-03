@@ -251,3 +251,10 @@
 
 #contentpage{weight:100%
 }
+
+h1{
+    position: center;
+    background: #E4E9F7;
+    font-size: 25px;
+
+}
