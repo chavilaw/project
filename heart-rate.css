@@ -9,3 +9,10 @@ body {
     margin-right: 8px;
     display: inline-block;
 }
+
+
+.chart-container {
+    width: 70%;
+    height: 380px;
+    margin: 0 auto;
+}
