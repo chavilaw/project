@@ -4,17 +4,41 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="setting.css">
 
-    <title>Title</title>
-
 </head>
 <body>
 
-<p id="contact"></p>
-<p id="phone"></p>
 
+<div class="settings-page">
+    <div class="settings-container">
+        <h1 class="page-title">Account Setting</h1>
+        <div class="settings-section">
+            <h2 class="settings-title">General Information</h2>
+            <div class="non-active-form">
+                <p id="contact"></p><i class="infor"></i>
+            </div>
+            <div>
+                <div class="non-active-form">
+                    <p id="phone"></p><i class="infor"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="send message">
+        <h2 class="page-title">Send message to doctor</h2>
+        <div class="non-active-form">
+            <p id="message"></p><i class="message"></i>
+            <form action="index.php"><textarea name="message" rows="10" cols="50">message</textarea>
+            </form>
+        </div>
+        <div class="wrapper">
+            <button class="sendButton">Send message</button>
+        </div>
+
+    </div>
 </body>
 
 <script>
+
 
     fetch('/user-infor.json')
     .then(response => response.json())
@@ -30,3 +54,6 @@
 
 
 </html>
+
+
+
