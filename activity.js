@@ -1,27 +1,23 @@
-"use strict"
+var X_AXIS = 'Date';
+var Y_AXIS = 'Duration';
+var BEGIN_AT_ZERO = false;
+var SHOW_GRID = true;
+var SHOW_LEGEND = false;
 
-let element = document.querySelector("p[color='black']");
-console.log(element); // logs null
+var ctx = document.getElementById('chart1').getContext('2d');
+const data = {
+    datasets: [{
+        label: 'My First Dataset',
+        data: [65, 59, 80, 81, 56, 55, 40],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+    }]
+};
 
+const config = {
+    type: 'line',
+    data: data,
+};
 
-
-var ctx = document.getElementById("activity");
-
-var stars = [135850, 52122, 148825, 16939, 9763];
-var frameworks = ["React", "Angular", "Vue", "Hyperapp", "Omi"];
-
-var activity = new Chart(ctx, {
-    type: "line",
-    data: {
-        labels: frameworks,
-        datasets: [
-            {
-                label: "Github Stars",
-                data: stars,
-                backgroundColor: "rgba(255, 99, 132, 0.2)",
-                borderColor: "rgba(255, 99, 132, 1)",
-                borderWidth: 1
-            }
-        ]
-    }
-});
+const chart = new Chart(ctx, config);
