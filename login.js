@@ -23,7 +23,7 @@ loginButton.addEventListener("click", (e) => {
     fetch("http://127.0.0.1:1337/login", requestOptions)
     .then(response => response.json())
     .then(result => {
-        if(result !== "wrong input"){
+        if(result !== "wrong password" && result !== "wrong username"){
             console.log(result);
             sessionStorage.setItem('id', result.id);
             sessionStorage.setItem('name', result.name);
