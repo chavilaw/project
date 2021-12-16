@@ -10,27 +10,45 @@ body {
     margin-top: 30px;
     margin-right: 8px;
     display: inline-block;
-}
 
+}
 
 #contact {
     display: inline-block;
+    color: white;
+    padding: 5px;
+
+
 }
 
 #phone {
     display: inline-block;
+    color: white;
+    padding: 5px;
+
+
 }
 
 textarea{
-    border: 2px solid #a0b3b0;
+    border: 0px;
 }
+#settings-title{
+    padding: 5px;
+    color: white;
+}
+#page-title{
+    padding: 5px;
 
+    color: white;
 
+}
 .wrapper {
-
+    color: white;
     width: 90%;
     margin: 30px auto;
     text-align: center;
+    padding: 5px;
+
 }
 
 .sendButton {
@@ -45,6 +63,8 @@ textarea{
     border-radius: 1px;
  }
 .loading {
+    color: white;
+
     display: inline-block;
     margin: -2px 2px;
     height: 8px;
