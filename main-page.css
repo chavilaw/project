@@ -255,7 +255,6 @@ h1{
     font-size: calc(16px + 2vh);
     padding-left: 50px;
     padding-top: 80px;
-    padding-bottom: 50px;
     padding-right: 8px;
     color: white;
     display: inline-block;
@@ -266,7 +265,7 @@ p1{
     font-size: calc(8px + 2vh);
     padding-left: 50px;
     padding-top: 80px;
-    padding-bottom: 100px;
+    padding-bottom: 80px;
     padding-right: 150px;
     color: white;
     display: inline-block;
@@ -284,6 +283,5 @@ button{
     letter-spacing: 1px;
     padding: 0.5rem 1rem;
     border-radius: 0.5px;
-    margin-left: 100px;
 
 }
