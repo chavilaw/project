@@ -1,18 +1,10 @@
-new Chart(document.getElementById("chart2"), {
-    type: 'line',
-    data: {
-        labels: [1200,1205,1210,1215,1220,1225,1230,1235,1240,1245],
-        datasets: [{
-            data: [55,58,60,54,55,54,52,49,52,53],
-            label: "Username",
-            borderColor: "#3e95cd",
-            fill: false
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Heart rate monitor data'
-        }
-    }
+$.getJSON('heart-rate.json', function(data) {
+    console.log(data); //see your data ( works in Chrome / FF with firebug)
+    console.log(data["date"]["value"]) //should output 1
 });
+
+
+
+fetch("heart-rate.json")
+    .then(response => response.json())
+    .then(json => console.log(json));

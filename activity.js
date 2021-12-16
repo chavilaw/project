@@ -1,18 +1,20 @@
-new Chart(document.getElementById("chart1"), {
+const CHART = document.getElementById('myChart');
+
+var myChart = new Chart(CHART, {
     type: 'line',
     data: {
-        labels: [1200,1205,1210,1215,1220,1225,1230,1235,1240,1245],
+        labels: Object.keys(data),
         datasets: [{
-            data: [1,0,1,1,0,0,1,0,0,0],
-            label: "Username",
-            borderColor: "#3e95cd",
-            fill: false
+            label: 'My first dataset',
+            fill: false,
+            lineTension: 0,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJointStyle: 'miter',
+            data: Object.values(data)
         }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Heart rate monitor data'
-        }
     }
-});
+})
