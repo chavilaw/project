@@ -1,5 +1,7 @@
 {
-  "user": "otto",
-  "hr": "y",
-  "hour": "x"
+  "labels": ["hourly"],
+  "datasets": [{
+    "label": "Heart-rate",
+    "data": [ ]
+  }]
 }

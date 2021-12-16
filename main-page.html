@@ -35,7 +35,7 @@
 
 
         <li>
-            <a href="activity.html">
+            <a href="#">
                 <i class='bx bx-bar-chart-alt-2' ></i>
                 <span class="links_name">Activity monitor</span>
             </a>
@@ -53,7 +53,7 @@
 
 
         <li>
-            <a href="setting.html" >
+            <a href="#" >
                 <i  class='bx bx-cog' ></i>
                 <span class="links_name">Setting</span>
             </a>
@@ -73,10 +73,16 @@
         </li>
     </ul>
 </div>
+
+
+
 <section class="home-section">
-    <h1>Welcome back to Our Project, the smart monitoring device.</h1>
-    <p1>Lets take a look at your recent doctor's note.</p1>
-    <div id="contentpage" ></div>
+    <div id="contentpage" >
+        <h1>Welcome back to Our Project, the smart monitoring device.</h1>
+        <p1>Lets take a look at your recent doctor's note.</p1>
+        <button onclick="notifyMe()">Notify me!</button>
+    </div>
+
 </section>
 <script>
     let sidebar = document.querySelector(".sidebar");
@@ -127,6 +133,33 @@
         }else {
             closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
         }
+    }
+
+
+    function notifyMe() {
+        // Let's check if the browser supports notifications
+        if (!("Notification" in window)) {
+            alert("This browser does not support desktop notification");
+        }
+
+        // Let's check whether notification permissions have already been granted
+        else if (Notification.permission === "granted") {
+            // If it's okay let's create a notification
+            var notification = new Notification("Hi there!");
+        }
+
+        // Otherwise, we need to ask the user for permission
+        else if (Notification.permission !== "denied") {
+            Notification.requestPermission().then(function (permission) {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    var notification = new Notification("Hi there!");
+                }
+            });
+        }
+
+        // At last, if the user has denied notifications, and you
+        // want to be respectful there is no need to bother them any more.
     }
 
 

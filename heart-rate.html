@@ -1,59 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart rate chart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <link rel="stylesheet" href="heart-rate.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script type="text/javascript" src="heart-rate.json"></script>
-    <script type="text/javascript" >
-        function load() {
-            var mydata = JSON.parse(data);
-            alert(mydata.length);
-
-            var div = document.getElementById('data');
-
-            for(var i = 0;i < mydata.length; i++)
-            {
-                div.innerHTML = div.innerHTML + "<p class='inner' id="+i+">"+ mydata[i].name +"</p>" + "<br>";
-            }
-        }
-    </script>
 </head>
 
 <body>
-<p id="user"></p>
-<p id="hr"></p>
-<p id="hour"></p>
+<canvas id="chart2" width="800" height="450"></canvas>
 
-<canvas id="hr"></canvas>
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- loading a javascript library for data visualization Charts.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-<!-- local javascript file -->
 <script src="heart-rate.js"></script>
 
-
-
-<script>
-
-    fetch('/heart-rate.json')
-        .then(response => response.json())
-        .then(data => displayData(data));
-
-    function displayData(data)
-    {
-        document.getElementById("user").innerHTML = data.user;
-        document.getElementById("hr").innerHTML = data.hr;
-        document.getElementById("hour").innerHTML = data.hour;
-    }
-
-</script>
 
 
 </body>

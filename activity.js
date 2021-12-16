@@ -1,27 +1,18 @@
-"use strict"
-
-let element = document.querySelector("p[color='black']");
-console.log(element); // logs null
-
-
-
-var ctx = document.getElementById("activity");
-
-var stars = [135850, 52122, 148825, 16939, 9763];
-var frameworks = ["React", "Angular", "Vue", "Hyperapp", "Omi"];
-
-var activity = new Chart(ctx, {
-    type: "line",
+new Chart(document.getElementById("chart1"), {
+    type: 'line',
     data: {
-        labels: frameworks,
-        datasets: [
-            {
-                label: "Github Stars",
-                data: stars,
-                backgroundColor: "rgba(255, 99, 132, 0.2)",
-                borderColor: "rgba(255, 99, 132, 1)",
-                borderWidth: 1
-            }
-        ]
+        labels: [1200,1205,1210,1215,1220,1225,1230,1235,1240,1245],
+        datasets: [{
+            data: [1,0,1,1,0,0,1,0,0,0],
+            label: "Username",
+            borderColor: "#3e95cd",
+            fill: false
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Heart rate monitor data'
+        }
     }
 });

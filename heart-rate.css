@@ -1,18 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 body {
-    color: white;
+    color: black;
     font-family: "Poppins", sans-serif;
     background-color: black;
-    font-size: calc(8px + 1vh);
     margin-left: 80px;
-    margin-top: 30px;
-    margin-right: 8px;
+    font-size: calc(8px + 1vh);
     display: inline-block;
 }
 
-
-.chart-container {
-    width: 70%;
-    height: 380px;
-    margin: 0 auto;
-}

@@ -4,40 +4,19 @@
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 
     <link rel="stylesheet" href="activity.css">
-    <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body>
 
-<p id="date"></p>
-<p id="frequency"></p>
+<canvas id="chart1" width="800" height="450"></canvas>
 
-
-<canvas id="activity"></canvas>
-
-
-<!-- loading a javascript library for data visualization Charts.js -->
-<!-- local javascript file -->
 <script src="activity.js"></script>
 
-
-<script>
-
-    fetch('/activity.json')
-        .then(response => response.json())
-        .then(data => displayData(data));
-
-    function displayData(data)
-    {
-        document.getElementById("date").innerHTML = data.date;
-        document.getElementById("frequency").innerHTML = data.frequency;
-    }
-
-</script>
 </body>
 
 
