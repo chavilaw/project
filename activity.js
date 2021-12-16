@@ -1,23 +1,18 @@
-var X_AXIS = 'Date';
-var Y_AXIS = 'Duration';
-var BEGIN_AT_ZERO = false;
-var SHOW_GRID = true;
-var SHOW_LEGEND = false;
-
-var ctx = document.getElementById('chart1').getContext('2d');
-const data = {
-    datasets: [{
-        label: 'My First Dataset',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-    }]
-};
-
-const config = {
+new Chart(document.getElementById("chart1"), {
     type: 'line',
-    data: data,
-};
-
-const chart = new Chart(ctx, config);
+    data: {
+        labels: [1200,1205,1210,1215,1220,1225,1230,1235,1240,1245],
+        datasets: [{
+            data: [1,0,1,1,0,0,1,0,0,0],
+            label: "Username",
+            borderColor: "#3e95cd",
+            fill: false
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Heart rate monitor data'
+        }
+    }
+});
