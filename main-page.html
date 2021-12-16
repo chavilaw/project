@@ -85,6 +85,14 @@
 
 </section>
 <script>
+    var isLogged = sessionStorage.getItem('isLogged');
+    console.log(data);
+    if(isLogged === null){
+        sessionStorage.setItem('isLogged', 'false');
+    }
+    else if(sessionStorage.getItem('id') !== null){
+        sessionStorage.setItem('isLogged', 'false');
+    }
     let sidebar = document.querySelector(".sidebar");
     let closeBtn = document.querySelector("#btn");
     let searchBtn = document.querySelector(".bx-search");
