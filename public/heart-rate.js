@@ -32,6 +32,7 @@ fetch("http://127.0.0.1:1337/heartrate", requestOptions)
         console.log(values);
     });
 
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
