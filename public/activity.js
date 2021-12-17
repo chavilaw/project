@@ -1,20 +1,29 @@
-const CHART = document.getElementById('myChart');
+fetch("activity.json")
+    .then(response => response.json())
+    .then(json => console.log(json));
 
-var myChart = new Chart(CHART, {
+var ctx = document.getElementById('Chart').getContext('2d');
+var Chart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: Object.keys(data),
+        labels: date[i],
         datasets: [{
-            label: 'My first dataset',
-            fill: false,
-            lineTension: 0,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJointStyle: 'miter',
-            data: Object.values(data)
+            label: 'Time',
+            data: values[i],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
         }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
     }
-})
+});
