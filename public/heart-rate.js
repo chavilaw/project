@@ -11,49 +11,46 @@ var requestOptions = {
     body: bodyRequest
 };
 
+let date = [];
+let values = [];
+
 fetch("http://127.0.0.1:1337/heartrate", requestOptions)
     .then(response => response.json())
     .then(result => {
-        let array = [];
-        let values = [];
+        let test = [];
         result.forEach(element => {
             let splited = element.date.split('T');
-            let splited2 = splited[1].split(':');
-            let final = splited2[0].toString() + splited2[1].toString();
-            console.log(final);
-            array.push(final);
-
-            console.log(element.value);
+            let deux = splited[1].split(':');
+            let final = "";
+            deux.forEach(e => {
+                final += e.toString();
+            })
+            
+            date.push(parseInt(final));
+            test.push(element.value);
             values.push(element.value);
-
+            var ctx = document.getElementById('myChart').getContext('2d');
+                console.log(values, date);
+                const labels = date;
+                const data = {
+            labels: labels,
+            datasets: [{
+                label: 'My First Dataset',
+                data: values,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+            };
+            var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: data,
+                    options: {
+                        showXLabels: 3
+                    }
+            });
+            
 
         });
-        console.log(array);
-        console.log(values);
     });
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: date,
-        datasets: [{
-            label: 'Time',
-            data: values,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: false
-            }
-        }
-    }
-});
