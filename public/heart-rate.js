@@ -3,7 +3,7 @@ var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
 var bodyRequest = new URLSearchParams();
-bodyRequest.append("id", 1);
+bodyRequest.append("id", sessionStorage.getItem('id'));
 
 var requestOptions = {
     method: 'POST',
