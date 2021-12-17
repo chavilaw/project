@@ -1,15 +1,13 @@
-fetch("activity.json")
-    .then(response => response.json())
-    .then(json => console.log(json));
+
 
 var ctx = document.getElementById('Chart').getContext('2d');
 var Chart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: date[i],
+        labels: date,
         datasets: [{
             label: 'Time',
-            data: values[i],
+            data: values,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)'
             ],

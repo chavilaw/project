@@ -13,22 +13,9 @@
 </head>
 
 <body>
-<canvas id="myChart" width="800" height="450" style="width:300px; height:150px"</canvas>
+<canvas id="myChart" width="800" height="450" style="width:300px; height:150px"></canvas>
 
 <script src="heart-rate.js"></script>
-<script>
-    fetch('/heart-rate.json')
-        .then(response => response.json())
-        .then(data => displayData(data));
-
-    function displayData(data) {
-        document.getElementById("date").innerHTML = data.date;
-        document.getElementById("value").innerHTML = data.value
-    }
-
-</script>
-}
-
 
 
 </body>
