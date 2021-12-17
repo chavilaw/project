@@ -3,6 +3,8 @@ var mysql = require('mysql');
 var jwt = require('jsonwebtoken')
 var mqtt =  require('mqtt')
 var cors =  require('cors');
+var fs =  require('fs');
+var path = require('path')
 
 var connection = mysql.createConnection({
     host     : 'localhost',
@@ -20,11 +22,10 @@ app.use(cors())
 
 app.use(express.json()) // for parsing application/jsonapp.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) 
+app.use(express.static(__dirname + '/public'));
 
-app.post('/', (req, res) => {
-    let body = req.body;
-    res.send(body);
-    console.log(body);
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/main-page.html'));
 })
 
 app.post('/signup', (req, res) => {
