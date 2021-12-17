@@ -13,9 +13,20 @@
 </head>
 <body>
 
-<canvas id="chart1" width="800" height="450"></canvas>
+<canvas id="chart" width="800" height="450"></canvas>
 
 <script src="activity.js"></script>
+<script>
+    fetch('/activity.json')
+        .then(response => response.json())
+        .then(data => displayData(data));
+
+    function displayData(data) {
+        document.getElementById("date").innerHTML = data.date;
+        document.getElementById("value").innerHTML = data.value
+    }
+
+</script>
 
 </body>
 
