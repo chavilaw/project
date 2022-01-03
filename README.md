@@ -40,7 +40,12 @@ Login - username and password connected to the device
 Send direct text to close relative when emergency occur
 
 ## Embedded design and programming
+- Components, their interfacing and communication
 
 ## Project execution
+- what we wanted the device to be like, how we wanted it to function
 
 ## Final product
+- Did the final product meet our expectations
+- where did we succeed / fail?
+- what would the future of the device look like, improvements etc.
