@@ -49,8 +49,6 @@ Send direct text to close relative when emergency occur
 - 2x BMP280 barometric pressure and altitude sensor
 - Optical heart rate sensor
 
-Sensors are interfaced via I2C and communication between sensors and web server is via Wi-Fi and MQTT.
-
 ## Project execution
 Concept of the project was to design and build a system that would detect emergency situations for elderly and disabled users. 
 
