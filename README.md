@@ -61,7 +61,7 @@ We used node.js and express.js for creating APIs and mySql for the database.
 
 * URL : `` /signup ``
 * Method : 
-  `` POST ``
+  `` POST `` 
   body : username, password
   
  With this request we can add a line in the users table of the database with the informations of the request.
