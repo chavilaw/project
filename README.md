@@ -2,13 +2,13 @@
 
 ## Product background and objectives
 
-Concept: system for detecting emergency situations for a user in a wheelchair (elderly, disabled, etc.). 
+Concept: System for detecting emergency situations for a user in a wheelchair (elderly, disabled, etc.). 
 
-Two devices: one in the wheelchair (embedded seat pad), other one wearable (on wrist?)
+Two devices: One on a wheelchair (embedded seat pad), other one wearable (on wrist?)
 
 Wheelchair unit detects person sitting and barometric pressure, connects to wearable device via BLE and to the Internet via WiFi.
 
-Wearable device detects heart rate and barometric pressure. Connects to chair unit via BLE.
+Wearable device detects heart rate and barometric pressure which then calculates the change of height. Connects to chair unit via Wi-Fi.
 
 ## Webpage design and programming
 
@@ -38,3 +38,9 @@ altimeter data, plot, flot charts
 other programming on the website
 Login - username and password connected to the device
 Send direct text to close relative when emergency occur
+
+## Embedded design and programming
+
+## Project execution
+
+## Final product
