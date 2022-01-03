@@ -97,9 +97,9 @@ We subscribe to 2 topics: `` LifeNotification/heartrate `` and `` LifeNotificati
 ### Components
 - 2x LPCXpresso1549 development board
 - Arduino UNO
-- Wi-Fi module
+- ESP8266 Wi-Fi module
 - 2x BMP280 barometric pressure and altitude sensor
-- Optical heart rate sensor
+- MAXREFDES117 Heart-Rate and Pulse-Oximetry Monitor utilizing MAX30102 optical heart rate sensor
 
 ### Project execution
 Concept of the project was to design and build a system that would detect emergency situations for elderly and disabled users. 
@@ -113,4 +113,4 @@ The delivery on our sensors delayed quite a bit so we were in a hurry to learn h
 
 We could not get data out from our sensors to send to our server, so we switched our LPC boards to one Arduino UNO. We were far more familiar with programming on an Arduino development board and this way we could at least demonstrate that the concept and idea of the system works. The idea was to use the Arduino to send to the MQTT server data for heartrate, altitude and a simple button for whether a person is seated. While all the sensors worked individually, the Arduino's serial port stopped working with all of the features, which seemed to be related to the low memory warnings upon uploading the compiled code. So at last minute we settled on showing only heartrate data.
 
-For the demonstartion, we had the Arduino connected via USB/emulated serial port to a laptop running a program called ([TTY2MQTT](https://www.metacodes.pro/funcodes/blog/using_tty2mqtt_to_bridge_between_serial_communication_and_mqtt/) that monitors serial port input and uploads the heartrate data to an MQTT server running on a Raspberry Pi at a group member's home.
+For the demonstartion, we had the Arduino connected via USB/emulated serial port to a laptop running a program called [TTY2MQTT](https://www.metacodes.pro/funcodes/blog/using_tty2mqtt_to_bridge_between_serial_communication_and_mqtt/) that monitors serial port input and uploads the heartrate data to an MQTT server running on a Raspberry Pi at a group member's home.
