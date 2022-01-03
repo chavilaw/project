@@ -42,12 +42,23 @@ Login - username and password connected to the device
 Send direct text to close relative when emergency occur
 
 ## Embedded design and programming
-- Components, their interfacing and communication
+# Components
+- 2x LPCXpresso1549 development board
+- Arduino UNO
+- Wi-Fi module
+- 2x BMP280 barometric pressure and altitude sensor
+- Optical heart rate sensor
+
+Sensors are interfaced via I2C and communication between sensors and web server is via Wi-Fi and MQTT.
 
 ## Project execution
-- what we wanted the device to be like, how we wanted it to function
+Concept of the project was to design and build a system that would detect emergency situations for elderly and disabled users. 
+
+Originally, we wanted to use two separate devices, which would connect to each other and share data via BLE. The system would use Wi-Fi and MQTT to send data to a web server for it to be monitored. 
 
 ## Final product
-- Did the final product meet our expectations
-- where did we succeed / fail?
-- what would the future of the device look like, improvements etc.
+On the final week before presentations, we came across on some difficulties on the embedded side. We knew this was going to be the toughest part since all our group members majors is networking.
+
+The delivery on our sensors delayed quite a bit so we were in a hurry to learn how to program them and use them in practice.
+
+We could not get data out from our sensors to send to our server, so we switched our LPC boards to one Arduino UNO. We were far more familiar with programming on an Arduino development board and this way we could at least demonstrate that the concept and idea of the system works. 
