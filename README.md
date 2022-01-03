@@ -6,9 +6,11 @@ Concept: System for detecting emergency situations for a user in a wheelchair (e
 
 Two devices: One on a wheelchair (embedded seat pad), other one wearable (on wrist?)
 
-Wheelchair unit detects person sitting and barometric pressure, connects to wearable device via BLE and to the Internet via WiFi.
+Wheelchair unit detects if the user is sitting down or left the chair.
 
-Wearable device detects heart rate and barometric pressure which then calculates the change of height. Connects to chair unit via Wi-Fi.
+Connects to wearable device and to the Internet via Wi-Fi.
+
+Wearable device detects heart rate and barometric pressure which then calculates the change of height.
 
 ## Webpage design and programming
 
