@@ -41,6 +41,58 @@ other programming on the website
 Login - username and password connected to the device
 Send direct text to close relative when emergency occur
 
+## Server and database
+
+We needed to create a server which is useful for the communication between the website and the database. There is 3 tables in the database: one for the users (user id, username and password), one for the heart-rate (user id, date and the value) and one for the position of the customer, to know if the person is on the weelchair or not (user id, date and value).
+We used node.js and express.js for creating APIs and mySql for the database.
+
+### APIs
+
+#### Login
+* URL : `` /login ``
+* Method : 
+  `` POST 
+  body : username, password
+  
+ If the username and the password of the request body are matching with a line of the users table of the database, the result of the request is a JSON object of the user. Then we create a session storage on the browser to save the informations of the user.
+ If the informations are not matching, the result of the request is 'wrong information'.
+ 
+#### Registration
+
+* URL : `` /signup ``
+* Method : 
+  `` POST ``
+  body : username, password
+  
+ With this request we can add a line in the users table of the database with the informations of the request.
+ 
+#### Heart-rate
+
+* URL : `` /heartrate ``
+* Method : 
+   `` POST ``
+  body : id
+  
+ If the id of the body's request is matching with an id of the database, the result of the request is an array with all the data of the heartrate stored in the database of the user. 
+ 
+#### Is Seated
+
+* URL : `` /isSeated ``
+* Method : 
+  `` POST ``
+  body : id
+  
+If the id of the body's request is matching with an id of the database, the result of the request is an array with all the saved position of the customer.
+
+We still have a lot of work to do with these APIs (security for example).
+
+### Communication with the embedded
+
+For the communication with the embedded, we are using the MQTT protocol. 
+We are using the MQTT library of node.js.
+
+We subscribe to 2 topics: `` LifeNotification/heartrate `` and `` LifeNotification/isSeated ``. When there is a new message in one of these topics, the value of the message is added to the right database.
+
 ## Embedded design and programming
 ### Components
 - 2x LPCXpresso1549 development board
@@ -49,12 +101,12 @@ Send direct text to close relative when emergency occur
 - 2x BMP280 barometric pressure and altitude sensor
 - Optical heart rate sensor
 
-## Project execution
+### Project execution
 Concept of the project was to design and build a system that would detect emergency situations for elderly and disabled users. 
 
 Originally, we wanted to use two separate devices, which would connect to each other and share data via BLE. The system would use Wi-Fi and MQTT to send data to a web server for it to be monitored. 
 
-## Final product
+### Final product
 On the final week before presentations, we came across on some difficulties on the embedded side. We knew this was going to be the toughest part since all our group members majors is networking.
 
 The delivery on our sensors delayed quite a bit so we were in a hurry to learn how to program them and use them in practice.
