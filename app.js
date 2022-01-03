@@ -13,12 +13,14 @@ var connection = mysql.createConnection({
     database: "LifeNotification"
   });
 
-var currentDate = new Date();
 
 var app = express();
-      
+    
+let i  =0 ;
 app.use(cors())
-
+let oldDate = 0;
+let currentDate = new Date();
+let newDate = currentDate.getSeconds();
 
 app.use(express.json()) // for parsing application/jsonapp.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) 
@@ -45,12 +47,9 @@ app.post('/signup', (req, res) => {
 app.post('/login', (req, res) => {
         connection.query("SELECT * FROM users WHERE name = '"+ req.body.name+"'", function (err, result) {
           if (err) throw err;
-          console.log(req.body.pass)
-          console.log(result);
           if(result[0] !== undefined){
             if(result[0].password === req.body.pass){
                 let r = Object.values(JSON.parse(JSON.stringify(result)))[0]
-                console.log(r)
                 res.send(result[0])
             }
             else{
@@ -71,16 +70,14 @@ app.post('/heartrate', (req, res) => {
             }
             connection.query("SELECT * FROM heartrate WHERE id = '"+ req.body.id+"'", function (err, result) {
               if (err) throw err;
-              console.log(result);
                   let r = Object.values(JSON.parse(JSON.stringify(result)))
-                  console.log(r)
                   res.send(r)
             });
           });
     }
 })
 
-app.get('/isSeated', (req, res) => {
+app.post('/isSeated', (req, res) => {
     if(req.body.id !== undefined){
         connection.connect(function(err) {
             if(err){
@@ -88,9 +85,7 @@ app.get('/isSeated', (req, res) => {
             }
             connection.query("SELECT * FROM isseated WHERE id = '"+ req.body.id+"'", function (err, result) {
               if (err) throw err;
-              console.log(result);
                   let r = Object.values(JSON.parse(JSON.stringify(result)))
-                  console.log(r)
                   res.send(r)
             });
           });
@@ -101,7 +96,7 @@ app.listen(1337, () => {
     console.log('ready on port 1337');
 });
 
-const host ="localhost"
+const host ="otso.hopto.org"
 
 const portmqtt = 1883
 
@@ -124,19 +119,23 @@ const client = mqtt.connect(connectUrl, {
   client.on('connect', () => {
     console.log('Connected')
     client.subscribe([topic, heartRate], () => {
-      console.log(`Subscribe to topic '${topic}'`)
     })
   })
 
   client.on('message', (topic, payload) => {
-      const res = JSON.parse(payload.toString());
+    currentDate = new Date();
+      i++;
+      newDate = currentDate.getSeconds();
+      let res;
+      if(topic === "LifeNotification/eartRate"){
+          res = payload.toString();
+      }
+      else{
+        res = JSON.parse(payload.toString());
+      }
       const date = currentDate.getFullYear().toString() + "-" + currentDate.getMonth().toString() + "-" + currentDate.getDate().toString() + " " + currentDate.getHours().toString() + ":" + currentDate.getMinutes().toString() + ":" + currentDate.getSeconds().toString();
-      console.log(date);
-      console.log(topic);
       if(topic === "LifeNotification/isSeated"){
-      if(res.state !== undefined){
-        connection.connect((err) => {
-            console.log('connected')
+      if(res.state !== undefined){$
             var sql = "INSERT INTO isseated (id, date, state) VALUES ("+ res.id+",'"  + date + "', '"+res.state+"')";
             connection.query(sql, (err) => {
                 if(err){
@@ -144,21 +143,26 @@ const client = mqtt.connect(connectUrl, {
                 }
                 console.log("1 record inserted")
             })
-        });
       }
     }
     else if(topic === "LifeNotification/heartrate"){
-        connection.connect((err) => {
-            console.log('connected')
-            var sql = "INSERT INTO heartrate (id, date, value) VALUES ("+ res.id+",'"  + date + "', '"+res.value+"')";
-            connection.query(sql, (err) => {
-                if(err){
-                    console.log(err)
-                }
-                console.log("1 record inserted")
+        if(i%100 === 0){
+            console.log("seconde")
+            connection.connect(function(err){
+                let id = 1;
+                let value = res;
+                console.log('connected')
+                var sql = "INSERT INTO heartrate (id, date, value) VALUES ("+ id+",'"  + date + "', '"+value+"')";
+                connection.query(sql, (err) => {
+                    if(err){
+                        console.log(err)
+                    }
+                    console.log("1 record inserted")
+                })
+            oldDate =  newDate;
             })
-        });
+                
+        }
     }
-    console.log('Received Message:', topic)
   })
 

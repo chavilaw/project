@@ -19,14 +19,15 @@ fetch("http://127.0.0.1:1337/heartrate", requestOptions)
     .then(result => {
         let test = [];
         result.forEach(element => {
-            let splited = element.date.split('T');
+            /*let splited = element.date.split('T');
             let deux = splited[1].split(':');
             let final = "";
             deux.forEach(e => {
                 final += e.toString();
             })
-            
-            date.push(parseInt(final));
+            */
+           let d = element.date.split('.')[0];
+            date.push(d);
             test.push(element.value);
             values.push(element.value);
             var ctx = document.getElementById('myChart').getContext('2d');
@@ -44,10 +45,7 @@ fetch("http://127.0.0.1:1337/heartrate", requestOptions)
             };
             var myChart = new Chart(ctx, {
                     type: 'line',
-                    data: data,
-                    options: {
-                        showXLabels: 3
-                    }
+                    data: data
             });
             
 

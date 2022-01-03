@@ -6,6 +6,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/css/main-page.css">
 
     <link rel="stylesheet" type="text/css" href="/css/heart-rate.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +15,66 @@
 </head>
 
 <body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-like icon'></i>
+            <div class="logo_name">Our project</div>
+            <i class='bx bx-menu' id="btn" ></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <i class='bx bx-search' ></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="main-page.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+    
+    
+            <li>
+                <a href="activity.html">
+                    <i class='bx bx-bar-chart-alt-2' ></i>
+                    <span class="links_name">Activity monitor</span>
+                </a>
+                <span class="tooltip">Activity monitor</span>
+            </li>
+    
+            <li>
+                <a href="/heart-rate.html">
+                    <i class='bx bx-bar-chart-square' ></i>
+                    <span class="links_name">heart rate monitor</span>
+                </a>
+                <span class="tooltip">Heart rate monitor</span>
+    
+            </li>
+    
+    
+            <li>
+                <a href="setting.html" >
+                    <i  class='bx bx-cog' ></i>
+                    <span class="links_name">Setting</span>
+                </a>
+                <span class="tooltip">Setting</span>
+            </li>
+    
+    
+            <li class="profile">
+                <div class="profile-details">
+                    <!--<img src="profile.jpg" alt="profileImg">-->
+                    <div class="username">
+                        <div class="name">Patient 01</div>
+                    </div>
+                </div>
+                <a href="login.html" class='bx bx-log-out' id="log_out"></a>
+    
+            </li>
+        </ul>
+    </div>
 <canvas id="myChart" width="800" height="400" ></canvas>
 
 <script src="heart-rate.js"></script>
