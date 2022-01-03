@@ -42,7 +42,7 @@ Login - username and password connected to the device
 Send direct text to close relative when emergency occur
 
 ## Embedded design and programming
-# Components
+### Components
 - 2x LPCXpresso1549 development board
 - Arduino UNO
 - Wi-Fi module
