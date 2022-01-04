@@ -95,16 +95,16 @@ We subscribe to 2 topics: `` LifeNotification/heartrate `` and `` LifeNotificati
 
 ## Embedded design and programming
 ### Components
-- 2x LPCXpresso1549 development board
-- Arduino UNO
-- ESP8266 Wi-Fi module
-- 2x BMP280 barometric pressure and altitude sensor
-- MAXREFDES117 Heart-Rate and Pulse-Oximetry Monitor utilizing MAX30102 optical heart rate sensor
+- 2x [LPCXpresso1549](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpc1500-cortex-m3/lpcxpresso-board-for-lpc1549:OM13056) development board
+- [Arduino UNO](https://www.arduino.cc/en/Main/arduinoBoardUno&gt;)
+- [ESP8266](https://www.espressif.com/en/products/modules/esp8266) Wi-Fi module
+- 2x [BMP280](https://www.adafruit.com/product/2651) barometric pressure and altitude sensor
+- [MAXREFDES117](https://www.maximintegrated.com/en/design/reference-design-center/system-board/6300.html) Heart-Rate and Pulse-Oximetry Monitor utilizing MAX30102 optical heart rate sensor
 
 ### Project execution
 Concept of the project was to design and build a system that would detect emergency situations for elderly and disabled users. 
 
-Originally, we wanted to use two separate devices, which would connect to each other and share data via BLE. The system would use Wi-Fi and MQTT to send data to a web server for it to be monitored. 
+Originally, we wanted to use two separate devices, which would connect to each other and share data via BLE. The system would use Wi-Fi and MQTT to send data to a web server for it to be monitored. After the parts order was put in, we learned that the pressure sensor we picked would not be practical so instead a simple button would be used to indicate whether a person was sitting in the wheelchair.
 
 ### Final product
 On the final week before presentations, we came across on some difficulties on the embedded side. We knew this was going to be the toughest part since all our group members majors is networking.
